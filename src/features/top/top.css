@@ -1,0 +1,223 @@
+.start {
+  background: #fff;
+  width: 100%;
+  height: 1000vh;
+}
+
+.body {
+  /*background: url(../images/galaxy.jpeg) no-repeat;*/
+  background: #000000;
+  /*背景画像を表示する水平・垂直位置を指定*/
+  /*background-position: center center;*/
+  /*画像を繰り返しで使用しない*/
+  background-repeat: no-repeat;
+  /*画面全体を覆うように表示*/
+  background-size: cover;
+  height: 100vh;
+}
+
+.content {
+  color: white;
+}
+
+/*.start {
+	background: #FFF;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100v;
+	z-index: 9000;
+	background-size:100%;
+}
+*/
+
+/*ページ読み込み時に表示される画像を真ん中に表示*/
+.start_image {
+  text-align: center;
+  position: absolute;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button-outline {
+  background-color: #0a5d8a;
+  width: 200px;
+  height: 100px;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+/*headerのボタンのデザイン*/
+.header-btn-design {
+  /*文字色を白色*/
+  color: white;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.first_block_sentence {
+  background-color: transparent;
+  border-color: #ff0000;
+  font-size: 10rem;
+  -webkit-text-stroke-color: #ff0000;
+  -webkit-text-stroke-width: 1px;
+  color: transparent;
+}
+
+.content_character:hover {
+  color: #ff0000;
+  text-shadow: 0 0 3px #ff0000, 0 0 40px #ff0000, 0 0 80px #ff0000;
+  transition-delay: 0.2s;
+}
+
+@media (max-width: 1200px) {
+  /* 横幅が1200px以上の場合に適用するスタイル */
+  .first_block {
+    height: 100vh;
+  }
+  .first_block_sentence {
+    background-color: transparent;
+    border-color: #ff0000;
+    font-size: 3rem;
+    -webkit-text-stroke-color: #ff0000;
+    -webkit-text-stroke-width: 1px;
+    color: transparent;
+  }
+}
+
+/* @media (min-width: 768px) {
+  .first_block_sentence {
+    background-color: transparent;
+    border-color: #ff0000;
+    font-size: 0.4rem;
+    -webkit-text-stroke-color: #ff0000;
+    -webkit-text-stroke-width: 1px;
+    color: transparent;
+  }
+} */
+
+.first_content_img {
+  background: url(../../images/brick.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 20%;
+  width: 100vh;
+  height: 100vh;
+}
+
+/* about */
+.second_content_img {
+  background: url(../../images/whisky.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 30%;
+}
+
+.article {
+  color: #fff;
+}
+
+.second_content_img {
+  color: #fff;
+}
+
+.about_me_title {
+  background-color: transparent;
+  border-color: #ff0000;
+  font-size: 80px;
+  -webkit-text-stroke-color: #ff0000;
+  -webkit-text-stroke-width: 1px;
+}
+
+.navbar-hamburger {
+  background-color: transparent;
+  background-image: #fff;
+  color: #fff;
+}
+
+/* .custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: rgb(255, 102, 203);
+} */
+
+/*Sendボタンデザイン*/
+.contact-send-button {
+  position: relative;
+  background: #000000;
+  display: inline-block;
+  padding: 15px 30px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-decoration: none;
+  font-size: 24px;
+  overflow: hidden;
+  transition: 0.2s;
+  /*ボタンの枠線を透明に*/
+  border: 1px solid transparent;
+}
+.contact-send-button:hover {
+  color: #000000;
+  background: #ffffff;
+  box-shadow: 0 0 10px #ffffff, 0 0 40px #ffffff, 0 0 80px #ffffff;
+  transition-delay: 0.2s;
+}
+.contact-send-button span {
+  position: absolute;
+  display: block;
+}
+.contact-send-button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff0000);
+}
+.contact-send-button:hover span:nth-child(1) {
+  left: 100%;
+  transition: 1s;
+}
+.contact-send-button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ff0000);
+}
+.contact-send-button:hover span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
+}
+.contact-send-button span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #ff0000);
+}
+.contact-send-button:hover span:nth-child(3) {
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+.contact-send-button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #ff0000);
+}
+.contact-send-button:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+}

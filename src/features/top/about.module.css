@@ -1,0 +1,14 @@
+.second_content_img {
+  background: url(../../images/brick.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.article {
+  margin-bottom: 40%;
+}
+
+.second_block {
+  padding-top: 15%;
+  padding-bottom: 20%;
+}
