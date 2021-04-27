@@ -1,21 +1,19 @@
 import React from "react";
 import TopCustomStyle from "./top.css";
-import AboutCustomStyle from "./about.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 // reactのheadやmetaタグを設定できるライブラリ（今回はbodyタグの設定で使う)
 import { Helmet } from "react-helmet";
 import {
-  Navbar,
-  Nav,
-  NavItem,
-  NavDropdown,
-  MenuItem,
   Container,
-  Button,
 } from "react-bootstrap";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Header from '../common/Header';
+import Fadein from '../animation/Fadein';
+
+
+// スムーススクロールを実現するためのライブラリ
+import { SmuuthLink, AnimateScroll as scroll } from "react-scroll";
 
 const Top = () => {
   return (
@@ -24,40 +22,33 @@ const Top = () => {
         <title>My Portfolio</title>
         <style>{"body { background-color: #000000; }"}</style>
       </Helmet>
-      <div classNameName="content">
-        
+      <div>
         <header>
-        <Header />
-
+          <Header />
         </header>
-        {/* <div className={TopCustomStyle.start}>
-          <div className={TopCustomStyle.start_image}>
-            <img src="images/hello.jpeg" />
-          </div>
-        </div> */}
         <div className="content-part">
           <Container fluid>
             <div className="row">
-              <div className=" first_content_img col-12 col-lg-12 col-md-12 col-sm-12">
-                <div>
-                  <h1 className="first_block_sentence content_character mt-5 col-lg-12 col-sm-12">
+              <div className=" first-content-img col-12 col-lg-12 col-md-12 col-sm-12">
+                <div id="home">
+                  <h1 className="first-block-sentence content-character mt-5">
                     I'm Tatsuki.
                   </h1>
-                  <h1 className="first_block_sentence content_character mt-5 col-lg-12 col-sm-12">
+                  <h1 className="first-block-sentence content-character mt-5">
                     This is my portfolio as a
                   </h1>
-                  <h1 className="first_block_sentence content_character mt-5 col-lg-12 col-sm-12">
+                  <h1 className="first-block-sentence content-character mt-5">
                     software engineer.
                   </h1>
                 </div>
               </div>
             </div>
           </Container>
-          <Container fluid className="second_block">
+          <Container fluid className="second-block">
             <div className="row">
-              <div className="second_content_img col-12 col-lg-12 col-md-12 col-sm-12">
+              <div className="second-content-img col-12 col-lg-12 col-md-12 col-sm-12">
                 <div className="firstvlock introduction">
-                <h1 class="content col-12 mx-auto">About me</h1>
+                <h1 class="content col-12" id="about">About me</h1>
                 <div className="col-12 mx-auto">
                   <p>
                     2014 Mar: Graduated from Kobe Gakuin University.
@@ -76,11 +67,11 @@ const Top = () => {
               </div>
             </div>
           </Container>
-          <Container fluid className="second_block">
+          <Container fluid className="third-block">
             <div class="row">
               <div class="third-content-img col-12 col-lg-12">
                 <div class="col-12">
-                  <h1 class="content  mx-auto">Contact</h1>
+                  <h1 class="content  mx-auto" id="contact">Contact</h1>
                   <Formik
                     initialErrors={{ email: "required" }}
                     initialValues={{ email: "", password: "" }}
@@ -107,8 +98,6 @@ const Top = () => {
                       <>
                         <form onSubmit={handleSubmit}>
                           <div>
-                            <label>Email Address</label>
-                            <br />
                             <input
                               className="form-control col-12 mt-1 mb-3"
                               placeholder="Email Address"
@@ -119,8 +108,6 @@ const Top = () => {
                             />
                           </div>
                           <div>
-                            <label>Subject</label>
-                            <br />
                             <input
                               className="form-control col-12 mt-1 mb-3"
                               placeholder="Subject"
@@ -131,8 +118,6 @@ const Top = () => {
                             />
                           </div>
                           <div>
-                            <label>Message</label>
-                            <br />
                             <textarea
                               className="form-control mt-1 mb-5"
                               rows="10"

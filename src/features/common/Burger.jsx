@@ -8,14 +8,16 @@ const StyledBurger = styled.div`
   position: fixed;
   top: 15px;
   right: 20px;
-  z-index: 40;
+  z-index: 90;
   display: none;
+  
   @media (max-width: 768px) {
     display: flex;
     justify-content: space-around;
     flex-flow: column nowrap;
   }
   div {
+    justify-content: right;  
     width: 2rem;
     height: 0.25rem;
     background-color: ${({ open }) => open ? '#FFFFFF' : '#FFFFFF'};

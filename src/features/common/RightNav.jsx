@@ -1,13 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+// スムーススクロールを実現するためのライブラリ
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 const Ul = styled.ul`
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
-  z-index: 20;
+  z-index: 80;
   li {
     padding: 18px 10px;
+  }
+  a {
+      color:
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
@@ -29,9 +34,39 @@ const Ul = styled.ul`
 const RightNav = ({ open }) => {
   return (
     <Ul open={open}>
-      <li>Home</li>
-      <li>About Me</li>
-      <li>Contact</li>
+      <li>
+        <Link
+            activeClass="active"
+            to="home"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}>
+                Home
+        </Link>
+      </li>
+      <li>
+          <Link
+            activeClass="active"
+            to="about"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}>
+                About me
+        </Link>
+     </li>
+     <li>
+        <Link
+            activeClass="active"
+            to="contact"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}>
+            Contact
+        </Link>
+     </li>
     </Ul>
   )
 }

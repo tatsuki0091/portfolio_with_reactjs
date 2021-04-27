@@ -73,5 +73,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 npm install --save @material-ui/core
 npm install --save @material-ui/icons
+
+// コンポーネントに直接 CSS を記入するためのライブラリ
 npm install --save styled-components
+// スムーススクロールを実現するためのライブラリ
+npm i -S react-scroll
+// メールのバリデーション用のライブラリ
+npm install -S yup
+// form 用のライブラリ
+npm i formik
+
 # portfolio_with_reactjs
