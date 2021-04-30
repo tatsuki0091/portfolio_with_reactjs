@@ -24,6 +24,7 @@ export function Email() {
                   initialValues={{ email: "", subject: "", message: "" }}
                   onSubmit={async (values) => {
                     await dispatch(fetchAsyncSendEmail(values));
+                    window.location.reload();
                   }}
                   validationSchema={Yup.object().shape({
                     email: Yup.string()
