@@ -82,5 +82,7 @@ npm i -S react-scroll
 npm install -S yup
 // form 用のライブラリ
 npm i formik
+// axios のインストール
+npm install axios
 
 # portfolio_with_reactjs

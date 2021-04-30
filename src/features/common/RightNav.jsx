@@ -12,7 +12,7 @@ const Ul = styled.ul`
     padding: 18px 10px;
   }
   a {
-      color:
+      color:red;
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
