@@ -3,6 +3,11 @@ import styled from 'styled-components';
 // スムーススクロールを実現するためのライブラリ
 import { Link, animateScroll as scroll } from 'react-scroll';
 
+import {
+  BrowserRouter,
+  Link as RouterLink
+} from "react-router-dom";
+
 const Ul = styled.ul`
   list-style: none;
   display: flex;
@@ -12,7 +17,7 @@ const Ul = styled.ul`
     padding: 18px 10px;
   }
   a {
-      color:red;
+      color:white;
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
@@ -66,6 +71,11 @@ const RightNav = ({ open }) => {
             duration={500}>
             Contact
         </Link>
+     </li>
+     <li>
+        <RouterLink to={`/playground`}>
+            Play ground
+        </RouterLink>
      </li>
     </Ul>
   )

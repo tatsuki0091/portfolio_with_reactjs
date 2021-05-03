@@ -7,10 +7,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchAsyncSendEmail, sendEmail } from './emailSlice'
+import { useHistory } from "react-router-dom";
 
 
 export function Email() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   return (
       <>
@@ -23,7 +25,8 @@ export function Email() {
                   initialErrors={{ email: "required", message: "required" }}
                   initialValues={{ email: "", subject: "", message: "" }}
                   onSubmit={async (values) => {
-                    await dispatch(fetchAsyncSendEmail(values));
+                    const result = await dispatch(fetchAsyncSendEmail(values));
+                    console.log(result)
                     window.location.reload();
                   }}
                   validationSchema={Yup.object().shape({

@@ -1,26 +1,19 @@
 import React from "react";
 import "./top.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-// reactのheadやmetaタグを設定できるライブラリ（今回はbodyタグの設定で使う)
-import { Helmet } from "react-helmet";
+
 import {
   Container,
 } from "react-bootstrap";
 
 import Header from '../common/Header';
 import Fadein from '../animation/Fadein';
-import { useDispatch, useSelector } from "react-redux";
-
 import {Email} from '../mail/Email';
 
 
 const Top = () => {
   return (
     <div>
-      <Helmet>
-        <title>My Portfolio</title>
-        <style>{"body { background-color: #000000; }"}</style>
-      </Helmet>
       <div>
         <header>
           <Header />

@@ -7,7 +7,6 @@ export const fetchAsyncSendEmail = createAsyncThunk(
   async (values) => {
     const res = await axios.post(`http://localhost:4000/send_email`, values, {
       headers: {
-        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
     });
@@ -38,9 +37,10 @@ export const emailSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchAsyncSendEmail.fulfilled, (state, action) => {
-      state.result = action.payload;
-    });
+    // builder.addCase(fetchAsyncSendEmail.fulfilled, (state, action) => {
+    //   console.log("frdfsf");
+    //   state.result = action.payload;
+    // });
   },
   // extraReducer追加
   // extraReducers: (builder) => {
