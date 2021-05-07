@@ -85,4 +85,12 @@ npm i formik
 // axios のインストール
 npm install axios
 
+// react-three/fiber
+npm install three @react-three/fiber
+
+npm install @react-three/drei
+npm install three-stdlib
+
 # portfolio_with_reactjs
+
+npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion react-three-fiber three @react-three/drei react-particles-js

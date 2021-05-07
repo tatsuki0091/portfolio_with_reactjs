@@ -7,7 +7,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Top} />
-          <Route path="/" component={Playground} />
+          <Route path="/playground" component={Playground} />
         </Switch>
       </Router>
     </>
