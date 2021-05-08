@@ -94,3 +94,6 @@ npm install three-stdlib
 # portfolio_with_reactjs
 
 npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion react-three-fiber three @react-three/drei react-particles-js
+
+// Modal を実現するためのライブラリ
+npm install --save react-modal
