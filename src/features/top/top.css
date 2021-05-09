@@ -6,7 +6,7 @@
 
 header {
   position: sticky;
-  z-index: 100;
+  z-index: 99;
   position: -webkit-sticky;
   top: 0;
 }
@@ -21,6 +21,13 @@ header {
   /*画面全体を覆うように表示*/
   background-size: cover;
   height: 100vh;
+}
+
+.fadeInImg {
+  text-align: center;
+  display: block;
+  margin: auto;
+  z-index: 100;
 }
 
 .content {
@@ -136,7 +143,7 @@ header {
   .first-block-sentence {
     background-color: transparent;
     border-color: #ff0000;
-    font-size: 7rem;
+    font-size: 6.2rem;
     -webkit-text-stroke-color: #ff0000;
     -webkit-text-stroke-width: 1px;
     color: transparent;
@@ -163,7 +170,7 @@ header {
 }
 
 /* about */
-.second-content-img {
+/* .second-content-img {
   background: url(../../images/whisky.jpg) no-repeat;
   background-size: cover;
   background-position: center;
@@ -185,7 +192,7 @@ header {
   font-size: 80px;
   -webkit-text-stroke-color: #ff0000;
   -webkit-text-stroke-width: 1px;
-}
+} */
 
 /* .navbar-hamburger {
   background-color: transparent;

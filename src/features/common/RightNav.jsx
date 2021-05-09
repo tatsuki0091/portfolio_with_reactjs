@@ -1,12 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 // スムーススクロールを実現するためのライブラリ
-import { Link, animateScroll as scroll } from 'react-scroll';
+import { Link, animateScroll as scroll } from "react-scroll";
 
-import {
-  BrowserRouter,
-  Link as RouterLink
-} from "react-router-dom";
+import { BrowserRouter, Link as RouterLink } from "react-router-dom";
 
 const Ul = styled.ul`
   list-style: none;
@@ -17,13 +14,13 @@ const Ul = styled.ul`
     padding: 18px 10px;
   }
   a {
-      color:white;
+    color: white;
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
     background-color: #000000;
     position: fixed;
-    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
     top: 0;
     right: 0;
     height: 100vh;
@@ -41,44 +38,57 @@ const RightNav = ({ open }) => {
     <Ul open={open}>
       <li>
         <Link
-            activeClass="active"
-            to="home"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}>
-                Home
+          activeClass="active"
+          to="home"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+        >
+          Home
         </Link>
       </li>
       <li>
-          <Link
-            activeClass="active"
-            to="about"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}>
-                About me
-        </Link>
-     </li>
-     <li>
         <Link
-            activeClass="active"
-            to="contact"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}>
-            Contact
+          activeClass="active"
+          to="about"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+        >
+          About me
         </Link>
-     </li>
-     <li>
-        <RouterLink to={`/playground`}>
-            Play ground
-        </RouterLink>
-     </li>
+      </li>
+      <li>
+        <Link
+          activeClass="active"
+          to="work"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+        >
+          Work
+        </Link>
+      </li>
+      <li>
+        <Link
+          activeClass="active"
+          to="contact"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+        >
+          Contact
+        </Link>
+      </li>
+      <li>
+        <RouterLink to={`/playground`}>Play ground</RouterLink>
+      </li>
     </Ul>
-  )
-}
+  );
+};
 
-export default RightNav
+export default RightNav;
