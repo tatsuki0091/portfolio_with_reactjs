@@ -170,7 +170,7 @@ header {
 }
 
 /* about */
-.second-content-img {
+/* .second-content-img {
   background: url(../../images/whisky.jpg) no-repeat;
   background-size: cover;
   background-position: center;
@@ -192,7 +192,7 @@ header {
   font-size: 80px;
   -webkit-text-stroke-color: #ff0000;
   -webkit-text-stroke-width: 1px;
-}
+} */
 
 /* .navbar-hamburger {
   background-color: transparent;

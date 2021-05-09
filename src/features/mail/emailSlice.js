@@ -14,20 +14,18 @@ export const fetchAsyncSendEmail = createAsyncThunk(
   }
 );
 
-export const openModal = () => {};
-
 export const emailSlice = createSlice({
   name: "email",
   initialState: {
     result: false,
+    modal: false,
   },
   reducers: {
-    sendEmail: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+    setOpenModal(state) {
+      state.modal = true;
+    },
+    resetOpenModal(state) {
+      state.modal = false;
     },
   },
   extraReducers: (builder) => {
@@ -48,6 +46,7 @@ export const emailSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { sendEmail, decrement, incrementByAmount } = emailSlice.actions;
+export const { sendEmail, setOpenModal, resetOpenModal } = emailSlice.actions;
 
+export const selectOpenProfile = (state) => state.email.modal;
 export default emailSlice.reducer;

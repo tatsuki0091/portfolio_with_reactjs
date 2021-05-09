@@ -97,3 +97,19 @@ npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion react-three-
 
 // Modal を実現するためのライブラリ
 npm install --save react-modal
+
+npm i @react-spring/web
+npm i detect-gpu
+npm i react-merge-refs
+npm i blob-polyfill
+npm i glsl-noise
+npm i lodash.omit
+npm i lodash.pick
+npm i stats.js
+npm i troika-three-text
+npm i use-asset
+npm i utility-types
+npm i zustand
+
+pm install react-dat-gui --save
+npm i three

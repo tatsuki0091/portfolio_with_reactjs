@@ -1,4 +1,4 @@
-import React, { useRef, Suspense, useMemo } from "react";
+import React, { useRef, Suspense, useMemo, useState } from "react";
 import { Canvas, extend, useThree, useFrame } from "react-three-fiber";
 
 import Header from "../common/Header";
@@ -7,11 +7,10 @@ import * as THREE from "three";
 import circleImg from "../../images/black_dot.svg";
 import { BoxBufferGeometry, BufferAttribute } from "three";
 import "./playground.css";
-import { Stars } from "@react-three/drei";
-import { softShadows } from "@react-three/drei";
+import { softShadows, MeshDistortMaterial } from "@react-three/drei";
 // OrbitControlsを使用するためにこのような書き方にしないといけない
-import { OrbitControls, TransformControls } from "three-stdlib";
-extend({ OrbitControls, TransformControls });
+// import { OrbitControls, TransformControls } from "three-stdlib";
+// extend({ OrbitControls, TransformControls });
 
 const Container = styled.div`
   canvas {
@@ -40,56 +39,99 @@ softShadows();
 //   );
 // };
 
-function SpiningMesh({ position, args, color }) {
+function SpiningMesh({ position, args, color, props }) {
   const mesh = useRef(null);
+  const [hovered, setHover] = useState(false);
+  const [active, setActive] = useState(false);
   useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
   return (
-    <mesh castShadow position={position} ref={mesh}>
+    <mesh
+      {...props}
+      ref={mesh}
+      scale={active ? 2 : 1}
+      onClick={(e) => setActive(!active)}
+      onPointerOver={(e) => setHover(true)}
+      onPointerOut={(e) => setHover(false)}
+      castShadow
+      position={position}
+      ref={mesh}
+    >
       <boxBufferGeometry attach="geometry" args={args} />
       <meshLambertMaterial attach="material" color={color} />
+      <meshStandardMaterial color={hovered ? "lightgreen" : color} />
+      {/* <MeshDistortMaterial
+        attach="material"
+        factor={1} // Strength, 0 disables the effect (default=1)
+        speed={10} // Speed (default=1)
+      /> */}
     </mesh>
   );
 }
 
-const Cube = () => {
-  return (
-    <mesh>
-      <boxBufferGeometry attach="geometry" />
-      <meshBasicMaterial
-        attach="material"
-        color="hotpink"
-        opacity={0.5}
-        transparent
-      />
-    </mesh>
-  );
-};
+// const Cube = () => {
+//   return (
+//     <mesh>
+//       <boxBufferGeometry attach="geometry" />
+//       <meshBasicMaterial
+//         attach="material"
+//         color="hotpink"
+//         opacity={0.5}
+//         transparent
+//       />
+//     </mesh>
+//   );
+// };
 
-const Scene = () => {
-  const {
-    camera,
-    gl: { domElement },
-  } = useThree();
-  return (
-    <>
-      <Cube />
-      <orbitControls args={[camera, domElement]} />
-    </>
-  );
-};
+// const Scene = () => {
+//   const {
+//     camera,
+//     gl: { domElement },
+//   } = useThree();
+//   return (
+//     <>
+//       <Cube />
+//       <orbitControls args={[camera, domElement]} />
+//     </>
+//   );
+// };
 
-const FakeSphere = () => {
-  return (
-    <mesh>
-      <sphereBufferGeometry
-        args={[5, 32, 32]}
-        position={[-18, -16, 14]}
-        attach="geometry"
-      />
-      <meshBasicMaterial color="red" attach="material" />
-    </mesh>
-  );
-};
+// const FakeSphere = () => {
+//   return (
+//     <mesh>
+//       <sphereBufferGeometry
+//         args={[5, 32, 32]}
+//         position={[-18, -16, 14]}
+//         attach="geometry"
+//       />
+//       <meshBasicMaterial color="red" attach="material" />
+//     </mesh>
+//   );
+// };
+
+// function Box(props) {
+//   // This reference will give us direct access to the mesh
+//   const mesh = useRef();
+//   // Set up state for the hovered and active state
+//   const [hovered, setHover] = useState(false);
+//   const [active, setActive] = useState(false);
+//   // Rotate mesh every frame, this is outside of React without overhead
+//   useFrame(() => {
+//     mesh.current.rotation.x = mesh.current.rotation.y += 0.01;
+//   });
+//   return (
+//     <mesh
+//       {...props}
+//       ref={mesh}
+//       scale={active ? 1.5 : 1}
+//       onClick={(e) => setActive(!active)}
+//       onPointerOver={(e) => setHover(true)}
+//       onPointerOut={(e) => setHover(false)}
+//     >
+//       <boxGeometry args={[1, 1, 1]} />
+//       <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
+//     </mesh>
+//   );
+// }
 
 const Playground = () => {
   return (
@@ -98,9 +140,10 @@ const Playground = () => {
       <Container>
         {/* fovで奥行きを調節する。値が低いほど前にくる */}
         {/* shadowsで物体に影をつける */}
+        {/* positionの第3引数は距離。値が大きければ大きいほど画面の奥の方に表示される*/}
         <Canvas
-          shadows
           colorManagement
+          shadows
           camera={{ position: [-5, 2, 10], fov: 60 }}
         >
           <ambientLight intensity={0.3} />
@@ -134,8 +177,10 @@ const Playground = () => {
             args={[3, 2, 1]}
             color="lightblue"
           />
-          <SpiningMesh position={[-2, 1, -5]} color="pink" />
-          <SpiningMesh position={[5, 1, -2]} color="pink" />
+          <SpiningMesh position={[-2, 1, -5, 0]} color="pink" />
+          <SpiningMesh position={[5, 1, -2, 0]} color="pink" />
+          {/* <Box position={[-1.2, 0, 0]} />
+          <Box position={[1.2, 0, 0]} /> */}
         </Canvas>
       </Container>
     </div>

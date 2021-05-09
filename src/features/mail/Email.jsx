@@ -6,7 +6,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import { fetchAsyncSendEmail } from "./emailSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchAsyncSendEmail, openModal } from "./emailSlice";
+import {
+  fetchAsyncSendEmail,
+  setOpenModal,
+  resetOpenModal,
+  selectModal,
+} from "./emailSlice";
 import { useHistory } from "react-router-dom";
 import SentMailModal from "./SentMailModal";
 
@@ -28,8 +33,11 @@ export function Email() {
                 initialValues={{ email: "", subject: "", message: "" }}
                 onSubmit={async (values) => {
                   const result = await dispatch(fetchAsyncSendEmail(values));
-                  openModal();
-                  // window.location.reload();
+                  await dispatch(setOpenModal());
+                  alert("You have sent a message");
+                  // スクロールをページの先頭にまで戻す
+                  window.scrollTo(0, 0);
+                  window.location.reload();
                 }}
                 validationSchema={Yup.object().shape({
                   email: Yup.string()
@@ -90,11 +98,11 @@ export function Email() {
                         type="submit"
                         value="Send"
                       ></input>
-                      <SentMailModal />
                     </form>
                   </>
                 )}
               />
+              <SentMailModal />
             </div>
           </div>
         </div>
