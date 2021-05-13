@@ -29,8 +29,10 @@ const Work = () => {
                     />
                   </a>
                   <Carousel.Caption>
-                    <h3>Todo Application</h3>
-                    <p>Todo Application which creted by Java with Spring</p>
+                    <h3 className="work-description">Todo Application</h3>
+                    <p className="work-description">
+                      Todo Application which creted by Java with Spring
+                    </p>
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -47,9 +49,13 @@ const Work = () => {
                   </a>
 
                   <Carousel.Caption>
-                    <h3>Free market web application</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    <h3 className="work-description">
+                      Free market web application
+                    </h3>
+                    <p className="work-description">
+                      Free market Application which creted by React with
+                      Typescript for frontend and Python with Django fot server
+                      side.
                     </p>
                   </Carousel.Caption>
                 </Carousel.Item>

@@ -87,6 +87,9 @@ const RightNav = ({ open }) => {
       <li>
         <RouterLink to={`/playground`}>Play ground</RouterLink>
       </li>
+      <li>
+        <RouterLink to={`/playgroundTwo`}>Play ground 2</RouterLink>
+      </li>
     </Ul>
   );
 };

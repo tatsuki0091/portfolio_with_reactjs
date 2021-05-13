@@ -4,7 +4,6 @@ import { Canvas, extend, useThree, useFrame } from "react-three-fiber";
 import Header from "../common/Header";
 import styled from "styled-components";
 import * as THREE from "three";
-import circleImg from "../../images/black_dot.svg";
 import { BoxBufferGeometry, BufferAttribute } from "three";
 import "./playground.css";
 import { softShadows, MeshDistortMaterial } from "@react-three/drei";

@@ -113,3 +113,9 @@ npm i zustand
 
 pm install react-dat-gui --save
 npm i three
+npm install blob
+npm i space-travel
+→https://www.npmjs.com/package/space-travel
+
+npm install troika-3d-text
+npm i react-three-gui

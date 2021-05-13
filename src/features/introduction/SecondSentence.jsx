@@ -8,7 +8,7 @@ const SecondSentence = () => {
   });
   return (
     <animated.div style={props}>
-      <h1 className="first-block-sentence content-character mt-5">
+      <h1 className="first-block-sentence content-character mt-4">
         This is my portfolio as a
       </h1>
     </animated.div>
