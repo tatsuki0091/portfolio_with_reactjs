@@ -14,6 +14,7 @@ import {
 } from "./emailSlice";
 import { useHistory } from "react-router-dom";
 import SentMailModal from "./SentMailModal";
+import "./email.scss";
 
 export function Email() {
   const dispatch = useDispatch();
@@ -25,9 +26,13 @@ export function Email() {
         <div className="row">
           <div className="third-content-img col-12 col-lg-12">
             <div className="col-12">
-              <h1 className="content  mb-4 mx-auto" id="contact">
+              <div
+                class="content contact-heading"
+                id="contact"
+                data-text="Contact"
+              >
                 Contact
-              </h1>
+              </div>
               <Formik
                 initialErrors={{ email: "required", message: "required" }}
                 initialValues={{ email: "", subject: "", message: "" }}

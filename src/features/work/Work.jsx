@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel, Container } from "react-bootstrap";
 import TodoImg from "../../images/todo.jpeg";
 import FreeMarket from "../../images/free_market.jpeg";
-import "./work.css";
+import "./work.scss";
 
 const Work = () => {
   return (
@@ -12,6 +12,15 @@ const Work = () => {
         <div className="row">
           <div className="third-content-img col-12 col-lg-12">
             <div className="col-12">
+              <div id="wrapper">
+                <p className="work-heading">
+                  <span>W</span>
+                  <span>O</span>
+                  <span>R</span>
+                  <span>K</span>
+                </p>
+              </div>
+
               <h1 className="content  mb-4 mx-auto" id="work">
                 Work
               </h1>

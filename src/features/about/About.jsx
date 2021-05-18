@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 import { Canvas, useFrame, extend } from "react-three-fiber";
 import { useTexture } from "./useTexture";
 import { useGLTF } from "@react-three/drei";
+import * as THREE from "three";
+import "../about/about.scss";
 
 import { softShadows, MeshDistortMaterial } from "@react-three/drei";
 // OrbitControlsを使用するためにこのような書き方にしないといけない

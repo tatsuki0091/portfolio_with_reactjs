@@ -1,6 +1,5 @@
 import React from "react";
 import "./top.css";
-import "../about/about.css";
 import About from "../about/About";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import { Container } from "react-bootstrap";

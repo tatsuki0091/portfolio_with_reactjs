@@ -119,3 +119,6 @@ npm i space-travel
 
 npm install troika-3d-text
 npm i react-three-gui
+npm i @react-three/cannon
+npm i use-cannon
+npm i node-sass

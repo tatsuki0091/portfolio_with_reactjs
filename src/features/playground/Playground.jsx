@@ -135,7 +135,9 @@ function SpiningMesh({ position, args, color, props }) {
 const Playground = () => {
   return (
     <div>
-      <header></header>
+      <header>
+        <Header />
+      </header>
       <Container>
         {/* fovで奥行きを調節する。値が低いほど前にくる */}
         {/* shadowsで物体に影をつける */}
