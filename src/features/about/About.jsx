@@ -64,21 +64,25 @@ const About = () => {
         <div className="row">
           <div className="second-content-img col-12 col-lg-12 col-md-12 col-sm-12">
             <div className="firstblock introduction" id="about">
-              <h1 className="content col-12">About me</h1>
               <div className="col-12 mx-auto">
-                <p className="article">
-                  2014 Mar: Graduated from Kobe Gakuin University.
-                </p>
-                <p className="article">
-                  2014 April: Work as an Operator for MS System Inc.
-                </p>
-                <p className="article">
-                  2016 Feb: Work as an assistanece of system engineer for Soft
-                  Hyperion Inc.
-                </p>
-                <p className="article">
-                  2018 Mar: Work as a programmer for Casareal inc.
-                </p>
+                <a
+                  href="/pdf/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pdf-button about-sent col-12 p-5"
+                >
+                  <h1>ABOUT ME</h1>
+                </a>
+                {/* <div class="parent">
+                  <a
+                    href="/pdf/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-3d btn"
+                  >
+                    BUTTON
+                  </a>
+                </div> */}
               </div>
             </div>
           </div>

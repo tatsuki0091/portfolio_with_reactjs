@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import { fetchAsyncSendEmail } from "./emailSlice";
 import { useDispatch, useSelector } from "react-redux";
-
+import { Animated } from "react-animated-css";
 import {
   fetchAsyncSendEmail,
   setOpenModal,
@@ -22,96 +22,104 @@ export function Email() {
 
   return (
     <>
-      <Container fluid className="third-block">
-        <div className="row">
-          <div className="third-content-img col-12 col-lg-12">
-            <div className="col-12">
-              <div
-                class="content contact-heading"
-                id="contact"
-                data-text="Contact"
-              >
-                Contact
+      <Animated
+        animationIn="bounceInLeft"
+        animationOut="fadeOut"
+        isVisible={true}
+      >
+        <Container fluid className="third-block">
+          <div className="row">
+            <div className="third-content-img col-12 col-lg-12">
+              <div className="col-12">
+                <div
+                  class="content contact-heading"
+                  id="contact"
+                  data-text="Contact"
+                >
+                  Contact
+                </div>
+                <Formik
+                  initialErrors={{ email: "required", message: "required" }}
+                  initialValues={{ email: "", subject: "", message: "" }}
+                  onSubmit={async (values) => {
+                    const result = await dispatch(fetchAsyncSendEmail(values));
+                    await dispatch(setOpenModal());
+                    alert("You have sent a message");
+                    // スクロールをページの先頭にまで戻す
+                    window.scrollTo(0, 0);
+                    window.location.reload();
+                  }}
+                  validationSchema={Yup.object().shape({
+                    email: Yup.string()
+                      .email("email format is wrong")
+                      .required("email is must"),
+                    message: Yup.string().required("message is must").max(2000),
+                  })}
+                  render={({
+                    handleSubmit,
+                    handleChange,
+                    handleBlur, // handler for onBlur event of form elements
+                    values,
+                    touched,
+                    errors,
+                    isValid,
+                  }) => (
+                    <>
+                      <form onSubmit={handleSubmit}>
+                        <div className="mb-5">
+                          <input
+                            className="form-control col-12 mt-1"
+                            placeholder="Email Address"
+                            type="text"
+                            name="email"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                          />
+                          {touched.email && errors.email ? (
+                            <div className="error-message">{errors.email}</div>
+                          ) : null}
+                        </div>
+                        <div className="mb-5">
+                          <input
+                            className="form-control col-12 mt-1"
+                            placeholder="Subject"
+                            type="text"
+                            name="subject"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        <div>
+                          <textarea
+                            className="form-control mt-1"
+                            rows="10"
+                            placeholder="Message"
+                            name="message"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                          />
+                          {touched.message && errors.message ? (
+                            <div className="error-message">
+                              {errors.message}
+                            </div>
+                          ) : null}
+                        </div>
+                        <br />
+                        <input
+                          className="col-12 contact-send-button"
+                          type="submit"
+                          value="Send"
+                        ></input>
+                      </form>
+                    </>
+                  )}
+                />
+                <SentMailModal />
               </div>
-              <Formik
-                initialErrors={{ email: "required", message: "required" }}
-                initialValues={{ email: "", subject: "", message: "" }}
-                onSubmit={async (values) => {
-                  const result = await dispatch(fetchAsyncSendEmail(values));
-                  await dispatch(setOpenModal());
-                  alert("You have sent a message");
-                  // スクロールをページの先頭にまで戻す
-                  window.scrollTo(0, 0);
-                  window.location.reload();
-                }}
-                validationSchema={Yup.object().shape({
-                  email: Yup.string()
-                    .email("email format is wrong")
-                    .required("email is must"),
-                  message: Yup.string().required("message is must").max(2000),
-                })}
-                render={({
-                  handleSubmit,
-                  handleChange,
-                  handleBlur, // handler for onBlur event of form elements
-                  values,
-                  touched,
-                  errors,
-                  isValid,
-                }) => (
-                  <>
-                    <form onSubmit={handleSubmit}>
-                      <div className="mb-5">
-                        <input
-                          className="form-control col-12 mt-1"
-                          placeholder="Email Address"
-                          type="text"
-                          name="email"
-                          onBlur={handleBlur}
-                          onChange={handleChange}
-                        />
-                        {touched.email && errors.email ? (
-                          <div className="error-message">{errors.email}</div>
-                        ) : null}
-                      </div>
-                      <div className="mb-5">
-                        <input
-                          className="form-control col-12 mt-1"
-                          placeholder="Subject"
-                          type="text"
-                          name="subject"
-                          onBlur={handleBlur}
-                          onChange={handleChange}
-                        />
-                      </div>
-                      <div>
-                        <textarea
-                          className="form-control mt-1"
-                          rows="10"
-                          placeholder="Message"
-                          name="message"
-                          onBlur={handleBlur}
-                          onChange={handleChange}
-                        />
-                        {touched.message && errors.message ? (
-                          <div className="error-message">{errors.message}</div>
-                        ) : null}
-                      </div>
-                      <br />
-                      <input
-                        className="col-12 contact-send-button"
-                        type="submit"
-                        value="Send"
-                      ></input>
-                    </form>
-                  </>
-                )}
-              />
-              <SentMailModal />
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </Animated>
     </>
   );
 }

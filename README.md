@@ -122,3 +122,4 @@ npm i react-three-gui
 npm i @react-three/cannon
 npm i use-cannon
 npm i node-sass
+npm i framer-motion

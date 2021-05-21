@@ -11,8 +11,8 @@ const Work = () => {
       <Container fluid className="third-block">
         <div className="row">
           <div className="third-content-img col-12 col-lg-12">
-            <div className="col-12">
-              <div id="wrapper">
+            <div className="col-12" id="work">
+              <div className="content">
                 <p className="work-heading">
                   <span>W</span>
                   <span>O</span>
@@ -21,9 +21,9 @@ const Work = () => {
                 </p>
               </div>
 
-              <h1 className="content  mb-4 mx-auto" id="work">
+              {/* <h1 className="content  mb-4 mx-auto" id="work">
                 Work
-              </h1>
+              </h1> */}
               <Carousel fade>
                 <Carousel.Item>
                   <a
