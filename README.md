@@ -123,3 +123,13 @@ npm i @react-three/cannon
 npm i use-cannon
 npm i node-sass
 npm i framer-motion
+
+npm i react-genie
+npm i gltfjsx
+npm i @react-three/postprocessing
+npm i @react-three/flex
+npm install @react-three/xr
+npm i @react-three/cannon
+npm i @react-three/a11y
+npm i zustand
+npm i react-use-gesture

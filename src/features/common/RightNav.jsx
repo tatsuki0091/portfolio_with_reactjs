@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 import { BrowserRouter, Link as RouterLink } from "react-router-dom";
-import { set } from "lodash";
+import "./common.scss";
 
 const Ul = styled.ul`
   list-style: none;
@@ -81,6 +81,7 @@ const RightNav = ({ open }) => {
         <Ul open={open}>
           <li>
             <Link
+              className="header-link"
               activeClass="active"
               to="home"
               spy={true}
@@ -93,6 +94,7 @@ const RightNav = ({ open }) => {
           </li>
           <li>
             <Link
+              className="header-link"
               activeClass="active"
               to="about"
               spy={true}
@@ -105,6 +107,7 @@ const RightNav = ({ open }) => {
           </li>
           <li>
             <Link
+              className="header-link"
               activeClass="active"
               to="work"
               spy={true}
@@ -117,6 +120,7 @@ const RightNav = ({ open }) => {
           </li>
           <li>
             <Link
+              className="header-link"
               activeClass="active"
               to="contact"
               spy={true}
@@ -131,14 +135,24 @@ const RightNav = ({ open }) => {
             <nav>
               <ul>
                 <li>
-                  <soan>Play ground</soan>
+                  <soan className="header-link">Play ground</soan>
                   <ul>
                     <li>
-                      <RouterLink to={`/playground`}>Play ground</RouterLink>
+                      <RouterLink className="header-link" to={`/playground`}>
+                        Play ground
+                      </RouterLink>
                     </li>
                     <li>
-                      <RouterLink to={`/playgroundTwo`}>
+                      <RouterLink className="header-link" to={`/playgroundTwo`}>
                         Play ground 2
+                      </RouterLink>
+                    </li>
+                    <li>
+                      <RouterLink
+                        className="header-link"
+                        to={`/playgroundThree`}
+                      >
+                        Play ground 3
                       </RouterLink>
                     </li>
                   </ul>
@@ -150,20 +164,34 @@ const RightNav = ({ open }) => {
       ) : (
         <Ul open={open}>
           <li>
-            <RouterLink to={`/`}>Home</RouterLink>
+            <RouterLink className="header-link" to={`/`}>
+              Home
+            </RouterLink>
           </li>
           <DROP>
             <nav>
               <ul>
                 <li>
-                  <a href="#">Play ground</a>
+                  <a className="header-link" href="#">
+                    Play ground
+                  </a>
                   <ul>
                     <li>
-                      <RouterLink to={`/playground`}>Play ground</RouterLink>
+                      <RouterLink className="header-link" to={`/playground`}>
+                        Play ground
+                      </RouterLink>
                     </li>
                     <li>
-                      <RouterLink to={`/playgroundTwo`}>
+                      <RouterLink className="header-link" to={`/playgroundTwo`}>
                         Play ground 2
+                      </RouterLink>
+                    </li>
+                    <li>
+                      <RouterLink
+                        className="header-link"
+                        to={`/playgroundThree`}
+                      >
+                        Play ground 3
                       </RouterLink>
                     </li>
                   </ul>

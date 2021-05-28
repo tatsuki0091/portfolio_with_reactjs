@@ -6,7 +6,12 @@ import styled from "styled-components";
 import * as THREE from "three";
 import { BoxBufferGeometry, BufferAttribute } from "three";
 import "./playground.css";
-import { softShadows, MeshDistortMaterial } from "@react-three/drei";
+import {
+  softShadows,
+  MeshDistortMaterial,
+  Stars,
+  OrbitControls,
+} from "@react-three/drei";
 // OrbitControlsを使用するためにこのような書き方にしないといけない
 // import { OrbitControls, TransformControls } from "three-stdlib";
 // extend({ OrbitControls, TransformControls });

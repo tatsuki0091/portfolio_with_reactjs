@@ -2,8 +2,10 @@
   color: white;
   font-size: 5rem;
   position: relative;
+  font-family: cursive;
 }
 
+// ノイズの部分
 @keyframes noise-anim {
   $steps: 20;
   @for $i from 0 through $steps {
@@ -63,6 +65,7 @@
   transition: 0.2s;
   /*ボタンの枠線を透明に*/
   border: 1px solid transparent;
+  font-family: cursive;
 }
 .contact-send-button:hover {
   color: #000000;

@@ -11,6 +11,10 @@
   font-size: 28px;
 }
 
+.about-heading {
+  font-family: cursive;
+}
+
 .second-content-img {
   color: #fff;
 }
@@ -23,17 +27,17 @@
   -webkit-text-stroke-width: 1px;
 }
 
-// button.btn-animation {
-//   color: #fff;
-//   background-color: #ff9d4d;
-//   border-bottom: 8px solid #ad662b;
-//   padding: 10px 8px 10px 8px;
-// }
-// button.btn-animation:hover {
-//   color: #fff;
-//   border-bottom: 4px solid #ad662b;
-//   margin-top: 4px;
-// }
+button.btn-animation {
+  color: #fff;
+  background-color: #ff9d4d;
+  border-bottom: 8px solid #ad662b;
+  padding: 10px 8px 10px 8px;
+}
+button.btn-animation:hover {
+  color: #fff;
+  border-bottom: 4px solid #ad662b;
+  margin-top: 4px;
+}
 
 .pdf-button {
   position: relative;

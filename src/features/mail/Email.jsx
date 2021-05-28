@@ -3,18 +3,11 @@ import { Container } from "react-bootstrap";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { fetchAsyncSendEmail } from "./emailSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { Animated } from "react-animated-css";
-import {
-  fetchAsyncSendEmail,
-  setOpenModal,
-  resetOpenModal,
-  selectModal,
-} from "./emailSlice";
+import { useDispatch } from "react-redux";
+import { fetchAsyncSendEmail, setOpenModal } from "./emailSlice";
 import { useHistory } from "react-router-dom";
-import SentMailModal from "./SentMailModal";
 import "./email.scss";
+import ScrollAnimation from "react-animate-on-scroll";
 
 export function Email() {
   const dispatch = useDispatch();
@@ -22,17 +15,15 @@ export function Email() {
 
   return (
     <>
-      <Animated
-        animationIn="bounceInLeft"
-        animationOut="fadeOut"
-        isVisible={true}
-      >
+      <ScrollAnimation animateIn="bounceInDown">
         <Container fluid className="third-block">
           <div className="row">
             <div className="third-content-img col-12 col-lg-12">
               <div className="col-12">
+                {/* Contactの見出しを左からフェードインさせるためのコンポーネント */}
+
                 <div
-                  class="content contact-heading"
+                  className="content contact-heading"
                   id="contact"
                   data-text="Contact"
                 >
@@ -114,12 +105,11 @@ export function Email() {
                     </>
                   )}
                 />
-                <SentMailModal />
               </div>
             </div>
           </div>
         </Container>
-      </Animated>
+      </ScrollAnimation>
     </>
   );
 }
