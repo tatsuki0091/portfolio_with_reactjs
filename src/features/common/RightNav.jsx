@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 // スムーススクロールを実現するためのライブラリ
 import { Link, animateScroll as scroll } from "react-scroll";
 
 import { BrowserRouter, Link as RouterLink } from "react-router-dom";
+import "./common.scss";
 
 const Ul = styled.ul`
   list-style: none;
@@ -33,61 +35,173 @@ const Ul = styled.ul`
   }
 `;
 
+const DROP = styled.div`
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  ul li {
+    float: left;
+    position: relative;
+    list-style: none;
+  }
+  ul li a {
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+  }
+  li ul {
+    display: none;
+    position: absolute;
+  }
+  li ul li {
+    float: none;
+  }
+  ul li:hover > ul {
+    display: block;
+  }
+`;
+
+function judge(path) {
+  if (path == "/") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 const RightNav = ({ open }) => {
+  const location = useLocation();
+  const judgePath = judge(location.pathname);
+
   return (
-    <Ul open={open}>
-      <li>
-        <Link
-          activeClass="active"
-          to="home"
-          spy={true}
-          smooth={true}
-          offset={-70}
-          duration={500}
-        >
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link
-          activeClass="active"
-          to="about"
-          spy={true}
-          smooth={true}
-          offset={-70}
-          duration={500}
-        >
-          About me
-        </Link>
-      </li>
-      <li>
-        <Link
-          activeClass="active"
-          to="work"
-          spy={true}
-          smooth={true}
-          offset={-70}
-          duration={500}
-        >
-          Work
-        </Link>
-      </li>
-      <li>
-        <Link
-          activeClass="active"
-          to="contact"
-          spy={true}
-          smooth={true}
-          offset={-70}
-          duration={500}
-        >
-          Contact
-        </Link>
-      </li>
-      <li>
-        <RouterLink to={`/playground`}>Play ground</RouterLink>
-      </li>
-    </Ul>
+    <>
+      {judgePath ? (
+        <Ul open={open}>
+          <li>
+            <Link
+              className="header-link"
+              activeClass="active"
+              to="home"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="header-link"
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              About me
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="header-link"
+              activeClass="active"
+              to="work"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              Work
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="header-link"
+              activeClass="active"
+              to="contact"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              Contact
+            </Link>
+          </li>
+          <DROP>
+            <nav>
+              <ul>
+                <li>
+                  <soan className="header-link">Play ground</soan>
+                  <ul>
+                    <li>
+                      <RouterLink className="header-link" to={`/playground`}>
+                        Play ground
+                      </RouterLink>
+                    </li>
+                    <li>
+                      <RouterLink className="header-link" to={`/playgroundTwo`}>
+                        Play ground 2
+                      </RouterLink>
+                    </li>
+                    <li>
+                      <RouterLink
+                        className="header-link"
+                        to={`/playgroundThree`}
+                      >
+                        Play ground 3
+                      </RouterLink>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </DROP>
+        </Ul>
+      ) : (
+        <Ul open={open}>
+          <li>
+            <RouterLink className="header-link" to={`/`}>
+              Home
+            </RouterLink>
+          </li>
+          <DROP>
+            <nav>
+              <ul>
+                <li>
+                  <a className="header-link" href="#">
+                    Play ground
+                  </a>
+                  <ul>
+                    <li>
+                      <RouterLink className="header-link" to={`/playground`}>
+                        Play ground
+                      </RouterLink>
+                    </li>
+                    <li>
+                      <RouterLink className="header-link" to={`/playgroundTwo`}>
+                        Play ground 2
+                      </RouterLink>
+                    </li>
+                    <li>
+                      <RouterLink
+                        className="header-link"
+                        to={`/playgroundThree`}
+                      >
+                        Play ground 3
+                      </RouterLink>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </DROP>
+        </Ul>
+      )}
+    </>
   );
 };
 

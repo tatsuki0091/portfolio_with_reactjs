@@ -113,3 +113,24 @@ npm i zustand
 
 pm install react-dat-gui --save
 npm i three
+npm install blob
+npm i space-travel
+→https://www.npmjs.com/package/space-travel
+
+npm install troika-3d-text
+npm i react-three-gui
+npm i @react-three/cannon
+npm i use-cannon
+npm i node-sass
+npm i framer-motion
+
+npm i react-genie
+npm i gltfjsx
+npm i @react-three/postprocessing
+npm i @react-three/flex
+npm install @react-three/xr
+npm i @react-three/cannon
+npm i @react-three/a11y
+npm i zustand
+npm i react-use-gesture
+npm i react-loading-overlay

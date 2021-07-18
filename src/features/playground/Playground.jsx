@@ -4,10 +4,14 @@ import { Canvas, extend, useThree, useFrame } from "react-three-fiber";
 import Header from "../common/Header";
 import styled from "styled-components";
 import * as THREE from "three";
-import circleImg from "../../images/black_dot.svg";
 import { BoxBufferGeometry, BufferAttribute } from "three";
 import "./playground.css";
-import { softShadows, MeshDistortMaterial } from "@react-three/drei";
+import {
+  softShadows,
+  MeshDistortMaterial,
+  Stars,
+  OrbitControls,
+} from "@react-three/drei";
 // OrbitControlsを使用するためにこのような書き方にしないといけない
 // import { OrbitControls, TransformControls } from "three-stdlib";
 // extend({ OrbitControls, TransformControls });
@@ -136,7 +140,9 @@ function SpiningMesh({ position, args, color, props }) {
 const Playground = () => {
   return (
     <div>
-      <header></header>
+      <header>
+        <Header />
+      </header>
       <Container>
         {/* fovで奥行きを調節する。値が低いほど前にくる */}
         {/* shadowsで物体に影をつける */}

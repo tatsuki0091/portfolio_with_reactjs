@@ -1,0 +1,47 @@
+.crimg {
+  height: 400px;
+}
+
+.work-description {
+  color: white;
+}
+
+span {
+  letter-spacing: 0.1em; /* make sure the letters don't overlap */
+}
+
+p {
+  margin: 0;
+}
+
+// workheading
+.work-heading {
+  font-family: cursive;
+}
+.work-heading:focus {
+  outline: none;
+}
+.work-heading span {
+  vertical-align: middle;
+  line-height: 1.5em;
+  transition: font-size 2s cubic-bezier(0, 1, 0, 1);
+}
+.work-heading span:hover {
+  font-size: 1.5em; /* This adds a hover effect */
+  line-height: 1em;
+  transition: font-size 0.2s cubic-bezier(0, 0.75, 0, 1);
+}
+.work-heading span:active {
+  font-size: 1em;
+}
+.work-heading span::selection {
+  background-color: white; /* This hides the selection */
+}
+
+#wrapper {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 10em;
+  padding: 50px 0;
+}

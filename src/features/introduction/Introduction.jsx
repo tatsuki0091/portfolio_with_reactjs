@@ -1,9 +1,9 @@
 import React from "react";
-import { useSpring, animated, Spring } from "react-spring";
 import { Container } from "react-bootstrap";
 import FirstSentence from "./FirstSentence";
 import SecondSentence from "./SecondSentence";
 import ThirdSentence from "./ThirdSentence";
+import "./introduction.scss";
 const Introduction = () => {
   return (
     <Container fluid>
