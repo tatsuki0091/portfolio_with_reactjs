@@ -19,6 +19,7 @@ export const emailSlice = createSlice({
   initialState: {
     result: false,
     modal: false,
+    isLoading: false,
   },
   reducers: {
     setOpenModal(state) {
@@ -26,6 +27,12 @@ export const emailSlice = createSlice({
     },
     resetOpenModal(state) {
       state.modal = false;
+    },
+    setIsLoading(state) {
+      state.isLoading = true;
+    },
+    resetIsLoading(state) {
+      state.isLoading = false;
     },
   },
   extraReducers: (builder) => {
@@ -46,7 +53,8 @@ export const emailSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { sendEmail, setOpenModal, resetOpenModal } = emailSlice.actions;
+export const { sendEmail, setIsLoading, resetIsLoading } = emailSlice.actions;
 
 export const selectOpenProfile = (state) => state.email.modal;
+export const selectIsLoading = (state) => state.email.isLoading;
 export default emailSlice.reducer;

@@ -12,7 +12,52 @@
   .first-block-sentence {
     background-color: transparent;
     border-color: #ff0000;
-    font-size: 3.8rem;
+    font-size: 3rem;
+    -webkit-text-stroke-color: #ff0000;
+    -webkit-text-stroke-width: 1px;
+    color: transparent;
+  }
+}
+
+@media (min-width: 200px) {
+  /*　画面サイズが1pxからはここを読み込む　*/
+  .first-block {
+    height: 100vh;
+  }
+  .first-block-sentence {
+    background-color: transparent;
+    border-color: #ff0000;
+    font-size: 3rem;
+    -webkit-text-stroke-color: #ff0000;
+    -webkit-text-stroke-width: 1px;
+    color: transparent;
+  }
+}
+
+@media (min-width: 240px) {
+  /*　画面サイズが1pxからはここを読み込む　*/
+  .first-block {
+    height: 100vh;
+  }
+  .first-block-sentence {
+    background-color: transparent;
+    border-color: #ff0000;
+    font-size: 3.3rem;
+    -webkit-text-stroke-color: #ff0000;
+    -webkit-text-stroke-width: 1px;
+    color: transparent;
+  }
+}
+
+@media (min-width: 360px) {
+  /*　画面サイズが1pxからはここを読み込む　*/
+  .first-block {
+    height: 100vh;
+  }
+  .first-block-sentence {
+    background-color: transparent;
+    border-color: #ff0000;
+    font-size: 4.2rem;
     -webkit-text-stroke-color: #ff0000;
     -webkit-text-stroke-width: 1px;
     color: transparent;
@@ -27,7 +72,7 @@
   .first-block-sentence {
     background-color: transparent;
     border-color: #ff0000;
-    font-size: 4.3rem;
+    font-size: 4.7rem;
     -webkit-text-stroke-color: #ff0000;
     -webkit-text-stroke-width: 1px;
     color: transparent;
@@ -43,6 +88,21 @@
     background-color: transparent;
     border-color: #ff0000;
     font-size: 5.3rem;
+    -webkit-text-stroke-color: #ff0000;
+    -webkit-text-stroke-width: 1px;
+    color: transparent;
+  }
+}
+
+@media (min-width: 850px) {
+  /*　画面サイズが768pxからはここを読み込む　*/
+  .first-block {
+    height: 100vh;
+  }
+  .first-block-sentence {
+    background-color: transparent;
+    border-color: #ff0000;
+    font-size: 5.8rem;
     -webkit-text-stroke-color: #ff0000;
     -webkit-text-stroke-width: 1px;
     color: transparent;

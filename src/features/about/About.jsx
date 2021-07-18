@@ -1,52 +1,12 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
-import ReactDOM from "react-dom";
-import { Canvas, useFrame, extend } from "react-three-fiber";
 import { useTexture } from "./useTexture";
 import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
 import "../about/about.scss";
-
-import { softShadows, MeshDistortMaterial } from "@react-three/drei";
+import ScrollAnimation from "react-animate-on-scroll";
 // OrbitControlsを使用するためにこのような書き方にしないといけない
-import { OrbitControls, TransformControls } from "three-stdlib";
-extend({ OrbitControls, TransformControls });
-
-function Cont() {
-  const table = useGLTF("./baccarat-table.gltf");
-  const update = (self) => {
-    self.material.map.anisotropy = 8;
-    // self.material.map.wrapS = 1001
-    // self.material.map.wrapT = 1001
-    self.material.map.minFilter = 1008;
-    self.material.map.needsUpdate = true;
-    console.log("updated", self);
-  };
-
-  function Texture({ table }) {
-    const texture = useTexture([{ url: "./images/player.png" }]);
-    console.log("filter", texture, table.nodes.player.material.map);
-    return (
-      <mesh
-        position={[2, 0, 0]}
-        rotation={[Math.PI, -Math.PI / 2, 0]}
-        geometry={table.nodes.player.geometry}
-      >
-        <meshStandardMaterial map={texture[0]} />
-      </mesh>
-    );
-  }
-  return (
-    <group position={[0, 0, 0]}>
-      <mesh
-        geometry={table.nodes.player.geometry}
-        material={table.nodes.player.material}
-        onUpdate={update}
-      />
-      <Texture table={table} />
-    </group>
-  );
-}
+// import { OrbitControls, TransformControls } from "three-stdlib";
+// extend({ OrbitControls, TransformControls });
 
 const About = () => {
   return (
@@ -60,20 +20,21 @@ const About = () => {
         <orbitControls />
         <ambientLight />
       </Canvas> */}
-      <Container fluid className="second-block">
-        <div className="row">
-          <div className="second-content-img col-12 col-lg-12 col-md-12 col-sm-12">
-            <div className="firstblock introduction" id="about">
-              <div className="col-12 mx-auto">
-                <a
-                  href="/pdf/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="pdf-button about-sent col-12 p-5"
-                >
-                  <h1>ABOUT ME</h1>
-                </a>
-                {/* <div class="parent">
+      <ScrollAnimation animateIn="bounceInRight">
+        <Container fluid className="second-block">
+          <div className="row">
+            <div className="second-content-img col-12 col-lg-12 col-md-12 col-sm-12">
+              <div className="firstblock introduction" id="about">
+                <div className="col-12 mx-auto">
+                  <a
+                    href="/pdf/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pdf-button about-sent col-12 p-5"
+                  >
+                    <h1 className={"about-heading"}>ABOUT ME</h1>
+                  </a>
+                  {/* <div class="parent">
                   <a
                     href="/pdf/resume.pdf"
                     target="_blank"
@@ -83,11 +44,12 @@ const About = () => {
                     BUTTON
                   </a>
                 </div> */}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </ScrollAnimation>
     </>
   );
 };

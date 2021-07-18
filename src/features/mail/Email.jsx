@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useDispatch } from "react-redux";
-import { fetchAsyncSendEmail, setOpenModal } from "./emailSlice";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  fetchAsyncSendEmail,
+  selectIsLoading,
+  setIsLoading,
+  resetIsLoading,
+} from "./emailSlice";
 import { useHistory } from "react-router-dom";
 import "./email.scss";
 import ScrollAnimation from "react-animate-on-scroll";
+import LoadingOverlay from "react-loading-overlay";
 
 export function Email() {
+  // 処理を一時的に止めるためのメソッド
+  const sleep = (msec) => new Promise((resolve) => setTimeout(resolve, msec));
+  // ローディング中のアニメーションの処理を管理するためのステート
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -34,11 +44,16 @@ export function Email() {
                   initialValues={{ email: "", subject: "", message: "" }}
                   onSubmit={async (values) => {
                     const result = await dispatch(fetchAsyncSendEmail(values));
-                    await dispatch(setOpenModal());
-                    alert("You have sent a message");
-                    // スクロールをページの先頭にまで戻す
-                    window.scrollTo(0, 0);
-                    window.location.reload();
+                    if (fetchAsyncSendEmail.fulfilled.match(result)) {
+                      await dispatch(setIsLoading());
+                      await sleep(5000);
+                      await dispatch(resetIsLoading());
+                      // スクロールをページの先頭にまで戻す
+                      window.scrollTo(0, 0);
+                      window.location.reload();
+                    } else {
+                      alert("Could not send an email. Please try later.");
+                    }
                   }}
                   validationSchema={Yup.object().shape({
                     email: Yup.string()
@@ -56,52 +71,60 @@ export function Email() {
                     isValid,
                   }) => (
                     <>
-                      <form onSubmit={handleSubmit}>
-                        <div className="mb-5">
+                      <LoadingOverlay
+                        active={isLoading}
+                        spinner
+                        text="Loading your content..."
+                      >
+                        <form onSubmit={handleSubmit}>
+                          <div className="mb-5">
+                            <input
+                              className="form-control col-12 mt-1"
+                              placeholder="Email Address"
+                              type="text"
+                              name="email"
+                              onBlur={handleBlur}
+                              onChange={handleChange}
+                            />
+                            {touched.email && errors.email ? (
+                              <div className="error-message">
+                                {errors.email}
+                              </div>
+                            ) : null}
+                          </div>
+                          <div className="mb-5">
+                            <input
+                              className="form-control col-12 mt-1"
+                              placeholder="Subject"
+                              type="text"
+                              name="subject"
+                              onBlur={handleBlur}
+                              onChange={handleChange}
+                            />
+                          </div>
+                          <div>
+                            <textarea
+                              className="form-control mt-1"
+                              rows="10"
+                              placeholder="Message"
+                              name="message"
+                              onBlur={handleBlur}
+                              onChange={handleChange}
+                            />
+                            {touched.message && errors.message ? (
+                              <div className="error-message">
+                                {errors.message}
+                              </div>
+                            ) : null}
+                          </div>
+                          <br />
                           <input
-                            className="form-control col-12 mt-1"
-                            placeholder="Email Address"
-                            type="text"
-                            name="email"
-                            onBlur={handleBlur}
-                            onChange={handleChange}
-                          />
-                          {touched.email && errors.email ? (
-                            <div className="error-message">{errors.email}</div>
-                          ) : null}
-                        </div>
-                        <div className="mb-5">
-                          <input
-                            className="form-control col-12 mt-1"
-                            placeholder="Subject"
-                            type="text"
-                            name="subject"
-                            onBlur={handleBlur}
-                            onChange={handleChange}
-                          />
-                        </div>
-                        <div>
-                          <textarea
-                            className="form-control mt-1"
-                            rows="10"
-                            placeholder="Message"
-                            name="message"
-                            onBlur={handleBlur}
-                            onChange={handleChange}
-                          />
-                          {touched.message && errors.message ? (
-                            <div className="error-message">
-                              {errors.message}
-                            </div>
-                          ) : null}
-                        </div>
-                        <br />
-                        <input
-                          className="col-12 contact-send-button"
-                          type="submit"
-                          value="Send"
-                        ></input>
-                      </form>
+                            className="col-12 contact-send-button"
+                            type="submit"
+                            value="Send"
+                          ></input>
+                        </form>
+                      </LoadingOverlay>
                     </>
                   )}
                 />
