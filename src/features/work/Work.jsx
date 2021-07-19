@@ -6,8 +6,24 @@ import FreeMarket from "../../images/free_market.jpeg";
 import "./work.scss";
 import ScrollAnimation from "react-animate-on-scroll";
 import Header from "../common/Header";
+import { useLocation } from "react-router-dom";
+
+function judge(path) {
+  if (
+    path === "/" ||
+    path === "/contact" ||
+    path === "/about" ||
+    path === "/work"
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 const Work = () => {
+  const location = useLocation();
+  const judgePath = judge(location.pathname);
   return (
     <>
       <header>

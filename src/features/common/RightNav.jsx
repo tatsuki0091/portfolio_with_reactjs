@@ -85,17 +85,9 @@ const RightNav = ({ open }) => {
       {judgePath ? (
         <Ul open={open}>
           <li>
-            <Link
-              className="header-link"
-              activeClass="active"
-              to="home"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-            >
+            <RouterLink className="header-link" to={`/`}>
               Home
-            </Link>
+            </RouterLink>
           </li>
           <li>
             <RouterLink className="header-link" to={`/about`}>

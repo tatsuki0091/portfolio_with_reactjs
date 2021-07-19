@@ -3,11 +3,27 @@ import { Container } from "react-bootstrap";
 import "../about/about.scss";
 import ScrollAnimation from "react-animate-on-scroll";
 import Header from "../common/Header";
+import { useLocation } from "react-router-dom";
 // OrbitControlsを使用するためにこのような書き方にしないといけない
 // import { OrbitControls, TransformControls } from "three-stdlib";
 // extend({ OrbitControls, TransformControls });
 
+function judge(path) {
+  if (
+    path === "/" ||
+    path === "/contact" ||
+    path === "/about" ||
+    path === "/work"
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 const About = () => {
+  const location = useLocation();
+  const judgePath = judge(location.pathname);
   return (
     <>
       <header>

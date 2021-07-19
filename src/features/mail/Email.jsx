@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { Formik } from "formik";
 import * as Yup from "yup";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -15,6 +16,20 @@ import Header from "../common/Header";
 import "./email.scss";
 import ScrollAnimation from "react-animate-on-scroll";
 import LoadingOverlay from "react-loading-overlay";
+import { useLocation } from "react-router-dom";
+
+function judge(path) {
+  if (
+    path === "/" ||
+    path === "/contact" ||
+    path === "/about" ||
+    path === "/work"
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 export function Email() {
   // 処理を一時的に止めるためのメソッド
@@ -22,12 +37,19 @@ export function Email() {
   // ローディング中のアニメーションの処理を管理するためのステート
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const judgePath = judge(location.pathname);
 
   return (
     <>
-      <header>
-        <Header />
-      </header>
+      {judgePath ? (
+        <header>
+          <Header />
+        </header>
+      ) : (
+        <header></header>
+      )}
+
       <ScrollAnimation animateIn="bounceInDown">
         <Container fluid className="third-block">
           <div className="row">
