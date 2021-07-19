@@ -1,14 +1,8 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
 import styled from "styled-components";
-import { render } from "react-dom";
-import { Canvas, extend, useThree, useFrame } from "react-three-fiber";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import * as THREE from "three";
-import { Text3DFacade } from "troika-3d-text";
-import { Text } from "@react-three/drei/core/Text";
-import { Controls, useControl } from "react-three-gui";
+import { Canvas, useThree, useFrame } from "react-three-fiber";
 import * as CANNON from "cannon";
-import { Physics, useBox, usePlane } from "@react-three/cannon";
+import { useBox } from "@react-three/cannon";
 import Header from "../common/Header";
 
 const Container = styled.div`
@@ -76,14 +70,14 @@ function Plane({ position }) {
   );
 }
 
-function ControlBox() {
-  return (
-    <mesh position={[0, 0, 0]}>
-      <boxBufferGeometry attach="geometry" />
-      <meshLambertMaterial attach="material" color="hotpink" />
-    </mesh>
-  );
-}
+// function ControlBox() {
+//   return (
+//     <mesh position={[0, 0, 0]}>
+//       <boxBufferGeometry attach="geometry" />
+//       <meshLambertMaterial attach="material" color="hotpink" />
+//     </mesh>
+//   );
+// }
 
 const CameraController = () => {
   const { camera, gl } = useThree();
@@ -99,19 +93,19 @@ const CameraController = () => {
   return null;
 };
 
-function PhyBox(props) {
-  const [ref, api] = useBox(() => ({ args: [1, 1, 1], mass: 1, ...props }));
+// function PhyBox(props) {
+//   const [ref, api] = useBox(() => ({ args: [1, 1, 1], mass: 1, ...props }));
 
-  return (
-    <Box
-      args={[1, 1, 1]}
-      ref={ref}
-      onClick={() => api.applyImpulse([0, 0, -10], [0, 0, 0])}
-    >
-      <meshNormalMaterial />
-    </Box>
-  );
-}
+//   return (
+//     <Box
+//       args={[1, 1, 1]}
+//       ref={ref}
+//       onClick={() => api.applyImpulse([0, 0, -10], [0, 0, 0])}
+//     >
+//       <meshNormalMaterial />
+//     </Box>
+//   );
+// }
 
 function changePosition(position) {
   var firstArgument = Math.floor(Math.random() * 31);

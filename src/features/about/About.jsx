@@ -1,9 +1,8 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { useTexture } from "./useTexture";
-import { useGLTF } from "@react-three/drei";
 import "../about/about.scss";
 import ScrollAnimation from "react-animate-on-scroll";
+import Header from "../common/Header";
 // OrbitControlsを使用するためにこのような書き方にしないといけない
 // import { OrbitControls, TransformControls } from "three-stdlib";
 // extend({ OrbitControls, TransformControls });
@@ -11,15 +10,9 @@ import ScrollAnimation from "react-animate-on-scroll";
 const About = () => {
   return (
     <>
-      {/* <Canvas
-        gl={{ powerPreference: "low-power", antialias: true, alpha: false }}
-      >
-        <Suspense fallback={null}>
-          <Cont />
-        </Suspense>
-        <orbitControls />
-        <ambientLight />
-      </Canvas> */}
+      <header>
+        <Header />
+      </header>
       <ScrollAnimation animateIn="bounceInRight">
         <Container fluid className="second-block">
           <div className="row">

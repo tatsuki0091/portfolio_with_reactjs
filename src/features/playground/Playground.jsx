@@ -1,20 +1,10 @@
-import React, { useRef, Suspense, useMemo, useState } from "react";
-import { Canvas, extend, useThree, useFrame } from "react-three-fiber";
+import React, { useRef, useState } from "react";
+import { Canvas, useFrame } from "react-three-fiber";
 
 import Header from "../common/Header";
 import styled from "styled-components";
-import * as THREE from "three";
-import { BoxBufferGeometry, BufferAttribute } from "three";
 import "./playground.css";
-import {
-  softShadows,
-  MeshDistortMaterial,
-  Stars,
-  OrbitControls,
-} from "@react-three/drei";
-// OrbitControlsを使用するためにこのような書き方にしないといけない
-// import { OrbitControls, TransformControls } from "three-stdlib";
-// extend({ OrbitControls, TransformControls });
+import { softShadows } from "@react-three/drei";
 
 const Container = styled.div`
   canvas {

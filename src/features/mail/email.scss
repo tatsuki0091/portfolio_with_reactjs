@@ -1,3 +1,12 @@
+.third-block {
+  /*background: url(../images/galaxy.jpeg) no-repeat;*/
+  background: #000000;
+  /*背景画像を表示する水平・垂直位置を指定*/
+  /*background-position: center center;*/
+  /*画像を繰り返しで使用しない*/
+  background-repeat: no-repeat;
+}
+
 .contact-heading {
   color: white;
   font-size: 5rem;
@@ -123,4 +132,10 @@
   bottom: 100%;
   transition: 1s;
   transition-delay: 0.75s;
+}
+
+// textareaの高さを設定
+.email-sentence {
+  height: calc(1.3em * 5);
+  line-height: 1.3;
 }

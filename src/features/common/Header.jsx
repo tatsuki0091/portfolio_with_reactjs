@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 // import { styled, withStyles } from "@material-ui/core/styles";
-import styled from 'styled-components';
+import styled from "styled-components";
 import Burger from "./Burger";
 // reactのheadやmetaタグを設定できるライブラリ（今回はbodyタグの設定で使う)
 import { Helmet } from "react-helmet";
@@ -13,8 +13,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: flex-end;
   background-color: black;
-  
-` ;
+`;
 
 const Header = () => {
   return (

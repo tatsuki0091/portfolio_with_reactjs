@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -10,7 +10,8 @@ import {
   setIsLoading,
   resetIsLoading,
 } from "./emailSlice";
-import { useHistory } from "react-router-dom";
+import Header from "../common/Header";
+
 import "./email.scss";
 import ScrollAnimation from "react-animate-on-scroll";
 import LoadingOverlay from "react-loading-overlay";
@@ -21,10 +22,12 @@ export function Email() {
   // ローディング中のアニメーションの処理を管理するためのステート
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   return (
     <>
+      <header>
+        <Header />
+      </header>
       <ScrollAnimation animateIn="bounceInDown">
         <Container fluid className="third-block">
           <div className="row">
@@ -104,7 +107,7 @@ export function Email() {
                           </div>
                           <div>
                             <textarea
-                              className="form-control mt-1"
+                              className="form-control email-sentence mt-1"
                               rows="10"
                               placeholder="Message"
                               name="message"
@@ -136,3 +139,5 @@ export function Email() {
     </>
   );
 }
+
+export default Email;

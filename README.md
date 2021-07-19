@@ -134,3 +134,5 @@ npm i @react-three/a11y
 npm i zustand
 npm i react-use-gesture
 npm i react-loading-overlay
+npm install --save react-fluid-animation
+npm i react-router-dom react-transition-group

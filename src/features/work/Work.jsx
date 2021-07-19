@@ -5,10 +5,14 @@ import TodoImg from "../../images/todo.jpeg";
 import FreeMarket from "../../images/free_market.jpeg";
 import "./work.scss";
 import ScrollAnimation from "react-animate-on-scroll";
+import Header from "../common/Header";
 
 const Work = () => {
   return (
     <>
+      <header>
+        <Header />
+      </header>
       <ScrollAnimation animateIn="bounceInLeft">
         <Container fluid className="third-block">
           <div className="row">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 // スムーススクロールを実現するためのライブラリ
@@ -64,7 +64,12 @@ const DROP = styled.div`
 `;
 
 function judge(path) {
-  if (path == "/") {
+  if (
+    path === "/" ||
+    path === "/contact" ||
+    path === "/about" ||
+    path === "/work"
+  ) {
     return true;
   } else {
     return false;
@@ -93,43 +98,19 @@ const RightNav = ({ open }) => {
             </Link>
           </li>
           <li>
-            <Link
-              className="header-link"
-              activeClass="active"
-              to="about"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-            >
-              About me
-            </Link>
+            <RouterLink className="header-link" to={`/about`}>
+              About
+            </RouterLink>
           </li>
           <li>
-            <Link
-              className="header-link"
-              activeClass="active"
-              to="work"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-            >
+            <RouterLink className="header-link" to={`/work`}>
               Work
-            </Link>
+            </RouterLink>
           </li>
           <li>
-            <Link
-              className="header-link"
-              activeClass="active"
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-            >
+            <RouterLink className="header-link" to={`/contact`}>
               Contact
-            </Link>
+            </RouterLink>
           </li>
           <DROP>
             <nav>
