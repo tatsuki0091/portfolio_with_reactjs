@@ -23,8 +23,11 @@ const About = () => {
       <ScrollAnimation animateIn="bounceInRight">
         <Container fluid className="second-block">
           <div className="row">
-            <div className="second-content-img col-12 col-lg-12 col-md-12 col-sm-12">
-              <div className="firstblock introduction" id="about">
+            <div
+              id="about"
+              className="second-content-img col-12 col-lg-12 col-md-12 col-sm-12"
+            >
+              <div className="firstblock introduction">
                 <div className="col-12 mx-auto">
                   <a
                     href="/pdf/resume.pdf"
