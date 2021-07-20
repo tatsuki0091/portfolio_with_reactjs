@@ -5,11 +5,16 @@ import axios from "axios";
 export const fetchAsyncSendEmail = createAsyncThunk(
   "send/email",
   async (values) => {
-    const res = await axios.post(`http://localhost:4000/send_email`, values, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await axios.post(
+      process.env.REACT_APP_SEND_EMAIL_PRODUCTION,
+      values,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(res);
     return res.data;
   }
 );
