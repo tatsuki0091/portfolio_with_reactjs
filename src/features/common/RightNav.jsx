@@ -147,14 +147,14 @@ const RightNav = ({ open }) => {
                         Play ground 2
                       </RouterLink>
                     </li>
-                    <li>
+                    {/* <li>
                       <RouterLink
                         className="header-link"
                         to={`/playgroundThree`}
                       >
                         Play ground 3
                       </RouterLink>
-                    </li>
+                    </li> */}
                   </ul>
                 </li>
               </ul>
@@ -186,14 +186,14 @@ const RightNav = ({ open }) => {
                         Play ground 2
                       </RouterLink>
                     </li>
-                    <li>
+                    {/* <li>
                       <RouterLink
                         className="header-link"
                         to={`/playgroundThree`}
                       >
                         Play ground 3
                       </RouterLink>
-                    </li>
+                    </li> */}
                   </ul>
                 </li>
               </ul>

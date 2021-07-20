@@ -1,6 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^1.6.1",
@@ -28,6 +29,7 @@
     "bootstrap": "^4.6.0",
     "cannon": "^0.6.2",
     "detect-gpu": "^3.0.0",
+    "dotenv": "^10.0.0",
     "drei": "^2.2.21",
     "formik": "^2.2.6",
     "framer-motion": "^4.1.17",
@@ -36,7 +38,7 @@
     "lodash-es": "^4.17.21",
     "lodash.omit": "^4.5.0",
     "lodash.pick": "^4.4.0",
-    "node-sass": "^6.0.0",
+    "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-animate-on-scroll": "^2.1.5",
     "react-animated-css": "^1.2.1",
