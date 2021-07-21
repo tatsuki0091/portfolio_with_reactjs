@@ -74,7 +74,7 @@ export function Email() {
                       <LoadingOverlay
                         active={isLoading}
                         spinner
-                        text="Loading your content..."
+                        text="Sending your email..."
                       >
                         <form onSubmit={handleSubmit}>
                           <div className="mb-5">
