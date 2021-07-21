@@ -14,7 +14,6 @@ export const fetchAsyncSendEmail = createAsyncThunk(
         },
       }
     );
-    console.log(res);
     return res.data;
   }
 );
