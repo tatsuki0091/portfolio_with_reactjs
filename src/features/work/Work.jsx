@@ -1,10 +1,10 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Carousel, Container } from "react-bootstrap";
-import TodoImg from "../../images/todo.jpeg";
-import FreeMarket from "../../images/free_market.jpeg";
-import "./work.scss";
-import ScrollAnimation from "react-animate-on-scroll";
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Carousel, Container } from 'react-bootstrap';
+import TodoImg from '../../images/todo.jpeg';
+import FreeMarket from '../../images/free_market.jpeg';
+import './work.scss';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const Work = () => {
   return (
@@ -70,21 +70,6 @@ const Work = () => {
                       </p>
                     </Carousel.Caption>
                   </Carousel.Item>
-                  {/* <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="holder.js/800x400?text=Third slide&bg=20232a"
-                    alt="Third slide"
-                  />
-
-                  <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>
-                      Praesent commodo cursus magna, vel scelerisque nisl
-                      consectetur.
-                    </p>
-                  </Carousel.Caption>
-                </Carousel.Item> */}
                 </Carousel>
               </div>
             </div>
