@@ -1,19 +1,18 @@
-import React, { useState } from "react";
-import { Container } from "react-bootstrap";
-import { Formik } from "formik";
-import * as Yup from "yup";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { useSelector, useDispatch } from "react-redux";
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchAsyncSendEmail,
   selectIsLoading,
   setIsLoading,
   resetIsLoading,
-} from "./emailSlice";
-import { useHistory } from "react-router-dom";
-import "./email.scss";
-import ScrollAnimation from "react-animate-on-scroll";
-import LoadingOverlay from "react-loading-overlay";
+} from './emailSlice';
+import './email.scss';
+import ScrollAnimation from 'react-animate-on-scroll';
+import LoadingOverlay from 'react-loading-overlay';
 
 export function Email() {
   // 処理を一時的に止めるためのメソッド
@@ -21,7 +20,6 @@ export function Email() {
   // ローディング中のアニメーションの処理を管理するためのステート
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   return (
     <>
@@ -40,26 +38,29 @@ export function Email() {
                   Contact
                 </div>
                 <Formik
-                  initialErrors={{ email: "required", message: "required" }}
-                  initialValues={{ email: "", subject: "", message: "" }}
-                  onSubmit={async (values) => {
+                  initialErrors={{ email: 'required', message: 'required' }}
+                  initialValues={{ email: '', subject: '', message: '' }}
+                  onSubmit={async (values, e) => {
+                    e.preventDefault();
+                    await dispatch(setIsLoading());
                     const result = await dispatch(fetchAsyncSendEmail(values));
                     if (fetchAsyncSendEmail.fulfilled.match(result)) {
-                      await dispatch(setIsLoading());
                       await sleep(5000);
-                      await dispatch(resetIsLoading());
                       // スクロールをページの先頭にまで戻す
                       window.scrollTo(0, 0);
                       window.location.reload();
                     } else {
-                      alert("Could not send an email. Please try later.");
+                      alert('Could not send an email. Please try later.');
+                      window.scrollTo(0, 0);
+                      window.location.reload();
                     }
+                    await dispatch(resetIsLoading());
                   }}
                   validationSchema={Yup.object().shape({
                     email: Yup.string()
-                      .email("email format is wrong")
-                      .required("email is must"),
-                    message: Yup.string().required("message is must").max(2000),
+                      .email('email format is wrong')
+                      .required('email is must'),
+                    message: Yup.string().required('message is must').max(2000),
                   })}
                   render={({
                     handleSubmit,
