@@ -9,7 +9,6 @@ import Introduction from '../introduction/Introduction';
 // import Fadein from "../animation/Fadein";
 import { Email } from '../mail/Email';
 import Work from '../work/Work';
-import { Animated } from 'react-animated-css';
 const Top = () => {
   return (
     <div>

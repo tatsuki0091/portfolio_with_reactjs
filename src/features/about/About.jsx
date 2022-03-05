@@ -35,7 +35,7 @@ const About = () => {
                     rel="noopener noreferrer"
                     className="pdf-button about-sent col-12 p-5"
                   >
-                    <h1 className={"about-heading"}>ABOUT ME</h1>
+                    <h1 className={"about-heading"}>Download Resume</h1>
                   </a>
                   {/* <div class="parent">
                   <a
