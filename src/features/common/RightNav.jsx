@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 // スムーススクロールを実現するためのライブラリ
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link, animateScroll as scroll } from 'react-scroll';
 
-import { BrowserRouter, Link as RouterLink } from "react-router-dom";
-import "./common.scss";
+import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
+import './common.scss';
 
 const Ul = styled.ul`
   list-style: none;
@@ -22,7 +22,7 @@ const Ul = styled.ul`
     flex-flow: column nowrap;
     background-color: #000000;
     position: fixed;
-    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
+    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
     top: 0;
     right: 0;
     height: 100vh;
@@ -64,7 +64,7 @@ const DROP = styled.div`
 `;
 
 function judge(path) {
-  if (path == "/") {
+  if (path == '/') {
     return true;
   } else {
     return false;
