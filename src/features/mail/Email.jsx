@@ -66,6 +66,7 @@ export function Email() {
                     touched,
                     errors,
                     isValid,
+                    isSubmitting,
                   }) => (
                     <>
                       <LoadingOverlay
@@ -119,6 +120,7 @@ export function Email() {
                             className="col-12 contact-send-button"
                             type="submit"
                             value="Send"
+                            disabled={!isValid || isSubmitting}
                           ></input>
                         </form>
                       </LoadingOverlay>
